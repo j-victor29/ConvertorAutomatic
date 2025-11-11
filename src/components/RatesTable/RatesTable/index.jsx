@@ -36,7 +36,7 @@ function RatesTable() {
 
   return (
     <div className="rates-container">
-      <h2>Tabela de Taxas — Base {baseCurrency}</h2>
+      <h2>Tabela de Taxas | Base {baseCurrency}</h2>
       
       <div className="rates-controls">
         <RatesSearchBar value={searchTerm} onChange={setSearchTerm} />
