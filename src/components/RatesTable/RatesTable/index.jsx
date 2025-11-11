@@ -85,7 +85,7 @@ function RatesTable() {
             ) : (
               <tr>
                 <td colSpan="3" className="no-results">
-                  Nenhuma moeda encontrada
+                  Nenhuma moeda encontrada!
                 </td>
               </tr>
             )}
