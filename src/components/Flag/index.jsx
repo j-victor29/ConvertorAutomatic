@@ -1,37 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import './Flag.css'
-import { currencyToCountry } from "../../utils/currencyToCountry";
+import { currencyData } from "../../utils/CurrencData";
 
-export default function Flag({ currency }) {
-  const [imageError, setImageError] = useState(false);
-
+export default function Flag({ currency, size = 32 }) {
   if (!currency) return null;
 
   const upper = currency.toUpperCase();
-  const country = currencyToCountry[upper];
+  const country = currencyData?.[upper]?.country;
 
   if (!country) {
-    // Se não há país mapeado, mostra o código da moeda como fallback
-    return <div className="flag-fallback" title={upper}>{upper}</div>;
+    console.warn(`Moeda não encontrada em currencyData: ${upper}`);
+    return (
+      <div
+        style={{
+          width: size,
+          height: size,
+          backgroundColor: "#ccc",
+          borderRadius: 4
+        }}
+      />
+    );
   }
 
-  // Se houve erro ao carregar a imagem, mostra fallback
-  if (imageError) {
-    return <div className="flag-fallback" title={upper}>{upper}</div>;
-  }
-
-  const countryCode = country.toLowerCase();
-  
-  // Usa flagcdn.com para obter a bandeira (png de 64x48 pixels)
-  const flagUrl = `https://flagcdn.com/64x48/${countryCode}.png`;
+  const url = `https://flagsapi.com/${country}/flat/${size}.png`;
 
   return (
-    <img 
-      src={flagUrl}
-      alt={`${upper} flag`}
-      className="flag-image"
-      onError={() => setImageError(true)}
-      title={upper}
+    <img
+      src={url}
+      alt={`Bandeira ${upper}`}
+      width={size}
+      height={size}
+      style={{ borderRadius: 4, objectFit: "cover" }}
+      onError={(e) => {
+        console.error(`Erro ao carregar imagem: ${url}`);
+        e.currentTarget.style.display = "none";
+      }}
     />
   );
 }
