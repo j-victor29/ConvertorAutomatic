@@ -1,0 +1,65 @@
+/* Converter.css
+	 Estilos do container do componente Converter e elementos internos.
+	 Comentários explicam o propósito de cada bloco para facilitar manutenção.
+*/
+
+/* Estilos do container principal do conversor */
+.converter-container {
+	max-width: 400px;
+	margin: 60px auto;
+	background-color: #222;
+	color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	font-family: Arial, sans-serif;
+}
+
+/* título do conversor */
+.converter-title {
+	text-align: center;
+	margin: 0 0 12px 0;
+}
+
+/* área que contém os seletores e o botão de swap */
+.converter-selectors {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+
+/* estilos aplicados aos <select> dentro dos CurrencySelector components */
+.currency-selector select {
+	padding: 8px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	background: #fff;
+	color: #000;
+}
+
+/* container do seletor que alinha a bandeira e o select */
+.currency-selector {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* ajuste específico para botões dentro de .converter-selectors (ex: SwapButton) */
+.converter-selectors > button {
+	margin: 0 10px;
+}
+
+/* botão Limpar ao lado do ConvertButton */
+.clear-button {
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: none;
+	background: #777;
+	color: #fff;
+	cursor: pointer;
+}
+
+.clear-button:hover {
+	background: #666;
+}
+
