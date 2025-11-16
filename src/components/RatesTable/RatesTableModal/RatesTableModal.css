@@ -1,0 +1,140 @@
+/* ===== OVERLAY (FUNDO ESFUMAÇADO) ===== */
+.rates-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ===== CONTAINER DO MODAL ===== */
+.rates-modal-container {
+  width: 480px;
+  max-height: 85vh;
+  background: #131325;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  color: #fff;
+  overflow-y: auto;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: fadeInUp 0.2s ease-out;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* ===== HEADER ===== */
+.rates-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rates-modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #c38aff;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* ===== SUBTÍTULO ===== */
+.rates-modal-subtitle {
+  margin-top: 4px;
+  margin-bottom: 18px;
+  color: #ccc;
+}
+
+/* ===== SELECT MOEDA BASE ===== */
+.rates-select-wrapper {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rates-select-wrapper label {
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.rates-select-wrapper select {
+  padding: 10px;
+  border-radius: 8px;
+  background: #1c1c35;
+  color: #fff;
+  border: 1px solid #3d3d5c;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.rates-select-wrapper select:hover {
+  border-color: #8250ff;
+}
+
+/* ===== TABELA ===== */
+.rates-table-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.rates-table-grid th {
+  background: #241b3a;
+  color: #c38aff;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 14px;
+}
+
+.rates-table-grid td {
+  padding: 10px;
+  border-bottom: 1px solid #2d2d49;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Alinhar as bandeiras + nome da moeda */
+.currency-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== INFO BOX ===== */
+.rates-info-box {
+  background: #1f1633;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #e3d6ff;
+  font-size: 14px;
+  border-left: 3px solid #b980ff;
+  margin-top: 10px;
+}
