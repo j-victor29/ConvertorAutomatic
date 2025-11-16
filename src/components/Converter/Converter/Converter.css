@@ -5,13 +5,14 @@
 
 /* Estilos do container principal do conversor */
 .converter-container {
-	max-width: 400px;
-	margin: 60px auto;
-	background-color: #222;
-	color: #fff;
+	background: var(--color-background-components);
+	color: var(--color-foreground);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
 	padding: 20px;
-	border-radius: 10px;
-	font-family: Arial, sans-serif;
+	max-width: 400px;
+	margin: 20px auto;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* título do conversor */
@@ -46,7 +47,13 @@
 
 /* ajuste específico para botões dentro de .converter-selectors (ex: SwapButton) */
 .converter-selectors > button {
-	margin: 0 10px;
+	padding: 8px 12px;
+	border-radius: 8px;
+	border: none;
+	background: var(--color-primary);
+	color: var(--color-primary-foreground);
+	cursor: pointer;
+	transition: background 0.25s;
 }
 
 /* botão Limpar ao lado do ConvertButton */

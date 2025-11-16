@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import ThemeToggle from '../ThemeToggle';
 
 function Header() {
   return (
@@ -10,7 +11,9 @@ function Header() {
         <a href="https://www.exchangerate-api.com/" target="_blank" rel="noreferrer">
         Link-API
         </a>
+        <ThemeToggle/>
       </div>
+
     </header>
   );
 }
