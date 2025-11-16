@@ -6,7 +6,8 @@ import ResultBox from "../ResultBox"; // componente que exibe resultado e meta-i
 import CurrencySelectorFrom from "../CurrencySelectorFrom"; // seletor de moeda origem
 import CurrencySelectorTo from "../CurrencySelectorTo"; // seletor de moeda destino
 import "./Converter.css"; // estilos do conversor
-import { convertCurrency } from "../../../services/api"; // função que busca taxas e calcula
+import { convertCurrency } from "../../../services/Api"; // função que busca taxas e calcula
+import RatesModal from "../../RatesTable/RatesTableModal";
 
 // Componente principal do conversor (versão ajustada para usar services/api.js)
 const Converter = () => {
@@ -17,6 +18,7 @@ const Converter = () => {
   const [rate, setRate] = useState(null); // taxa retornada pela API
   const [date, setDate] = useState(null); // data da última atualização
   const [loading, setLoading] = useState(false); // estado de carregamento
+  const [isModalOpen, setIsModalOpen] = useState(false); // estado do modal
 
   // Inverte as moedas selecionadas e limpa resultado
   const handleSwap = () => {
@@ -25,6 +27,11 @@ const Converter = () => {
     setToCurrency(temp); // seta toCurrency com o valor temporário
     setResult(null); // limpa resultado anterior
   };
+  // Função para abrir o modal
+  const handleOpenModal = () => setIsModalOpen(true);
+
+  // Função para fechar o modal
+  const handleCloseModal = () => setIsModalOpen(false);
 
   // Executa a conversão usando a função do serviço
   const handleConvert = async () => {
@@ -53,7 +60,7 @@ const Converter = () => {
   // JSX do componente com comentários inline para facilitar leitura
   return (
     <div className="converter-container">{/* container principal */}
-      <h2 className="converter-title">💱 Sistema de Conversão</h2>{/* título */}
+      <h2 className="converter-title"> Sistema de Conversão</h2>{/* título */}
 
       <AmountInput
         value={amount}
@@ -103,7 +110,20 @@ const Converter = () => {
         base={fromCurrency} // moeda base
         target={toCurrency} // moeda alvo
       />{/* caixa de resultado */}
+      
+
+      {/* Botão para ABRIR o Modal */}
+      <button onClick={handleOpenModal}>
+        Ver Taxas Completas
+      </button>
+
+      {/* Renderização CONDICIONAL do Modal */}
+      {isModalOpen && (
+        <RatesModal onClose={handleCloseModal} />
+      )}
+      
     </div>
+  
   );
 };
 
